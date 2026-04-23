@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#d32f2f" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34a853" />
+    </marker>
+  </defs>
+  
+  <text x="450" y="30" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">
+    CSRF-Angriff: Praktisches Beispiel
+  </text>
+  
+  <text x="450" y="55" text-anchor="middle" font-size="14" fill="#666">
+    Kontoübernahme durch Passwortänderung
+  </text>
+  
+  <rect x="50" y="80" width="800" height="560" fill="none" stroke="#ccc" stroke-width="1" rx="8"/>
+  
+  <g id="benutzer-bob">
+    <circle cx="150" cy="200" r="45" fill="#4285f4" stroke="#1a73e8" stroke-width="2"/>
+    <text x="150" y="200" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">Bob</text>
+    <text x="150" y="215" text-anchor="middle" font-size="12" fill="#fff">VIP-Mitglied</text>
+    <text x="150" y="265" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Bob</text>
+    <text x="150" y="282" text-anchor="middle" font-size="11" fill="#666">(Opfer)</text>
+  </g>
+  
+  <g id="angreifer-mallory">
+    <circle cx="750" cy="200" r="45" fill="#d32f2f" stroke="#b71c1c" stroke-width="2"/>
+    <text x="750" y="200" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">Mallory</text>
+    <text x="750" y="215" text-anchor="middle" font-size="12" fill="#fff">Angreifer</text>
+    <text x="750" y="265" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Mallory</text>
+    <text x="750" y="282" text-anchor="middle" font-size="11" fill="#666">(will Konto übernehmen)</text>
+  </g>
+  
+  <g id="legitime-website">
+    <rect x="350" y="100" width="200" height="120" rx="8" fill="#34a853" stroke="#137333" stroke-width="2"/>
+    <text x="450" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">
+      Legitime Website
+    </text>
+    <text x="450" y="150" text-anchor="middle" font-size="13" fill="#fff">
+      (VIP-Portal)
+    </text>
+    <rect x="370" y="165" width="160" height="20" rx="4" fill="#fff" opacity="0.3"/>
+    <text x="450" y="178" text-anchor="middle" font-size="11" fill="#fff">
+      Session-Cookie
+    </text>
+    <rect x="370" y="190" width="160" height="20" rx="4" fill="#fff" opacity="0.3"/>
+    <text x="450" y="203" text-anchor="middle" font-size="11" fill="#fff">
+      /change-password
+    </text>
+  </g>
+  
+  <g id="gefaelschte-website">
+    <rect x="550" y="350" width="250" height="120" rx="8" fill="#ff6b6b" stroke="#d32f2f" stroke-width="2"/>
+    <text x="675" y="380" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">
+      Gefälschte Website
+    </text>
+    <text x="675" y="400" text-anchor="middle" font-size="13" fill="#fff">
+      von Mallory
+    </text>
+    <rect x="570" y="415" width="210" height="20" rx="4" fill="#fff" opacity="0.3"/>
+    <text x="675" y="428" text-anchor="middle" font-size="11" fill="#fff">
+      "Kostenlose Inhalte"
+    </text>
+    <rect x="570" y="440" width="210" height="20" rx="4" fill="#fff" opacity="0.3"/>
+    <text x="675" y="453" text-anchor="middle" font-size="10" fill="#fff">
+      Verstecktes Formular
+    </text>
+  </g>
+  
+  <g id="browser">
+    <rect x="50" y="350" width="200" height="120" rx="8" fill="#fbbc04" stroke="#ea8600" stroke-width="2"/>
+    <rect x="60" y="360" width="180" height="30" rx="4" fill="#fff"/>
+    <circle cx="75" cy="375" r="5" fill="#d32f2f"/>
+    <circle cx="95" cy="375" r="5" fill="#fbbc04"/>
+    <circle cx="115" cy="375" r="5" fill="#34a853"/>
+    <text x="150" y="425" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">
+      Browser von Bob
+    </text>
+    <text x="150" y="445" text-anchor="middle" font-size="11" fill="#333">
+      Cookie gespeichert
+    </text>
+  </g>
+  
+  
+  <g id="step1">
+    <line x1="195" y1="190" x2="340" y2="145" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="250" y="155" font-size="11" fill="#1a73e8" font-weight="bold">1. Login</text>
+  </g>
+  
+  <g id="step2">
+    <line x1="350" y1="155" x2="205" y2="200" stroke="#34a853" stroke-width="2" marker-end="url(#arrowhead-green)" stroke-dasharray="5,5"/>
+    <text x="250" y="185" font-size="11" fill="#137333" font-weight="bold">2. Cookie</text>
+  </g>
+  
+  <g id="step3">
+    <path d="M 750 245 L 750 300 L 675 300 L 675 340" stroke="#d32f2f" stroke-width="2" marker-end="url(#arrowhead-red)" fill="none"/>
+    <text x="720" y="275" font-size="11" fill="#d32f2f" font-weight="bold">3. Website</text>
+    <text x="720" y="290" font-size="11" fill="#d32f2f" font-weight="bold">erstellen</text>
+  </g>
+  
+  <g id="step4">
+    <path d="M 250 420 L 540 420" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" fill="none"/>
+    <text x="350" y="440" font-size="11" fill="#1a73e8" font-weight="bold">4. Besucht gefälschte Seite</text>
+  </g>
+  
+  <g id="step5">
+    <path d="M 550 380 L 280 380 L 280 290 L 380 230" stroke="#d32f2f" stroke-width="3" marker-end="url(#arrowhead-red)" fill="none"/>
+    <text x="310" y="320" font-size="11" fill="#d32f2f" font-weight="bold">5. Passwort ändern</text>
+    <text x="310" y="335" font-size="10" fill="#d32f2f">(+ Cookie automatisch)</text>
+  </g>
+  
+  <g id="step6">
+    <line x1="705" y1="200" x2="560" y2="155" stroke="#d32f2f" stroke-width="2" marker-end="url(#arrowhead-red)" stroke-dasharray="5,5"/>
+    <text x="640" y="165" font-size="11" fill="#d32f2f" font-weight="bold">6. Login mit</text>
+    <text x="640" y="180" font-size="11" fill="#d32f2f" font-weight="bold">neuem Passwort</text>
+  </g>
+  
+  
+  <g id="verstecktes-formular">
+    <rect x="80" y="615" width="740" height="60" rx="4" fill="#ffebee" stroke="#d32f2f" stroke-width="1" opacity="0.9"/>
+    <text x="450" y="635" text-anchor="middle" font-size="11" fill="#d32f2f" font-weight="bold">
+      Verstecktes Formular auf gefälschter Seite:
+    </text>
+    <text x="90" y="652" font-size="10" fill="#333" font-family="monospace">
+      &lt;form method="POST" action="https://vip-portal.com/change-password"&gt;
+    </text>
+    <text x="100" y="667" font-size="10" fill="#333" font-family="monospace">
+      &lt;input type="hidden" name="new_password" value="hacker123"/&gt;
+    </text>
+  </g>
+</svg>

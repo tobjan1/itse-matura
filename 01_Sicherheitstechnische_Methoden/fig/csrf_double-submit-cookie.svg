@@ -1,0 +1,32 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#ffffff" />
+  
+  <text x="150" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Client (Browser)</text>
+  <text x="650" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Server</text>
+  
+  <line x1="150" y1="60" x2="150" y2="450" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="650" y1="60" x2="650" y2="450" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <path d="M 650 100 L 160 100" stroke="#0056b3" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <text x="400" y="90" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0056b3">1. Response: Set-Cookie: csrf_token=a8F4...</text>
+  
+  <rect x="50" y="140" width="200" height="60" rx="5" fill="#e9ecef" stroke="#333" />
+  <text x="150" y="165" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">2. Clientseitiges JS liest</text>
+  <text x="150" y="185" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">document.cookie</text>
+  
+  <path d="M 150 260 L 640 260" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <text x="400" y="235" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#28a745">3. Request (z.B. POST)</text>
+  <text x="400" y="255" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Cookie: csrf_token=a8F4...</text>
+  <text x="400" y="275" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="bold">X-CSRF-Token: a8F4...</text>
+  
+  <rect x="550" y="320" width="200" height="80" rx="5" fill="#fff3cd" stroke="#856404" />
+  <text x="650" y="345" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">4. Server-Vergleich:</text>
+  <text x="650" y="365" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Cookie-Wert ==</text>
+  <text x="650" y="385" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Header-Wert</text>
+  
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+  </defs>
+</svg>
