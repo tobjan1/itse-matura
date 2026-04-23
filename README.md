@@ -5,8 +5,8 @@ Dieses Repository enthält Zusammenfassungen für die ITSE-Matura (IT-Security) 
 
 ## Themen
 
-| Ordner | Inhalt | Status |
-|--------|--------|--------|
+| Ordner | Inhalt |
+|--------|--------|
 | [01_Sicherheitstechnische_Methoden](01_Sicherheitstechnische_Methoden/README.md) | Backups, Passwörter, SSH, Sessions, Tokens, MITRE |
 | [02_Sicherheitstechnische_Angriffsvektoren](02_Sicherheitstechnische_Angriffsvektoren/README.md) | ARP Spoofing, SQLi, XSS, IDOR, CSRF, File Upload |
 | [03_Sicherheitstechnische_Grundlagen](03_Sicherheitstechnische_Grundlagen/README.md) | CIA, AuthN/AuthZ, Kryptografie, Zertifikate |
