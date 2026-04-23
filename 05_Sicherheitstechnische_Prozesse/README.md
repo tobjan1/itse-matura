@@ -39,6 +39,7 @@ Warum ist das notwendig?: Es reicht nicht aus, Sicherheitsvorkehrungen einmal zu
 Dynamik: Das gesamte ISMS unterliegt einer Dynamik und muss an geänderte Rahmenbedingungen oder Gesetze angepasst werden.
 
 
+
 PLAN (Planen):
 
 Grund: Neues ISMS aufbauen oder bestehendes an neue Rahmenbedingungen / Gesetze anpassen.
@@ -47,6 +48,8 @@ Inhalt: Festlegen von Zielen (SMART).
 
 Ressourcen: Berücksichtigung von Personal, Budget und Zeitplänen mit Meilensteinen.
 
+
+
 DO (Umsetzen):
 
 Die geplanten Maßnahmen werden verwirklicht.
@@ -54,6 +57,8 @@ Die geplanten Maßnahmen werden verwirklicht.
 Verantwortlichkeiten werden zugewiesen und Budgets bereitgestellt.
 
 Wichtig: Aufzeichnungen in sinnvollem Maße führen.
+
+
 
 CHECK (Überprüfen):
 
@@ -64,6 +69,8 @@ Konformität: Wurden Prozesse / Maßnahmen wie vorgeschrieben eingehalten? (Unab
 Effektivität: Wurde das tatsächliche Ziel erreicht? (z.B. unbefugte Personen am Zutritt gehindert) .
 
 Effizienz: Wurde das Ziel mit optimalem Ressourceneinsatz (Wirkungsgrad) erreicht?.
+
+
 
 ACT (Handeln/Verbessern):
 
