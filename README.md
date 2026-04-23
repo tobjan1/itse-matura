@@ -1,7 +1,7 @@
 # ITSE Matura Zusammenfassung
 
 Dieses Repository enthält Zusammenfassungen für die ITSE-Matura (IT-Security) an der HTL.
-Der Fragenkatalog befindet sich separat unter `ITSE Fragen Katalog.md`.
+
 
 ## Themen
 
