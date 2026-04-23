@@ -58,6 +58,23 @@ Ohne Konzept sind Backups zufällig, lückenhaft und im Ernstfall unbrauchbar. D
 | 6 | **WIE** | Welches Medium wird eingesetzt, welche Software? |
 | 7 | **WO** | Wie ist die Aufbewahrung geregelt? |
 
+
+## Beispiel: Datensicherungskonzept "HTL Muster GmbH"
+
+Fiktive mittelständische Firma mit Fileserver, Mailserver, CRM-Datenbank, 50 Mitarbeiter.
+
+| W-Frage | Antwort für HTL Muster GmbH |
+|---------|---------------------------|
+| **WAS** | CRM-Datenbank (kritisch), Exchange-Mailserver (kritisch), Fileserver (wichtig), AD-Konfiguration (kritisch). Keine Sicherung: Client-PCs (werden aus Image neu aufgesetzt) |
+| **WANN** | Montag–Freitag jeweils 22:00–05:00 Uhr (Wartungsfenster); CRM als Online-Backup via SQL-Snapshot, alle anderen offline |
+| **WIE OFT** | CRM: alle 2 Stunden inkrementell, täglich Voll; Exchange: täglich Voll; Fileserver: täglich inkrementell, Sonntags Voll; AD: täglich |
+| **WIE VIEL** | Großvater-Vater-Sohn: 14 Tages-Sicherungen, 8 Wochen-Sicherungen, 24 Monats-Sicherungen, 7 Jahres-Sicherungen (Buchhaltung) |
+| **WER** | Durchführung: IT-Admin Herr Schmidt; Kontrolle (Log-Review): IT-Leiterin Frau Müller; Restore-Berechtigung: nur Admin + Geschäftsführung; Eskalation: CIO |
+| **WIE** | Veeam Backup & Replication auf NAS (Synology, AES-256 verschlüsselt) + wöchentlicher Offsite-Sync in Azure Blob Storage |
+| **WO** | Primär: NAS im Serverraum (onsite); Sekundär: Azure (offsite, EU-Region Wien); Tapes mit Jahres-Sicherungen im Bankschließfach |
+
+Zusätzlich: **quartalsweiser Restore-Test** — eine zufällige Sicherung wird auf einem Test-Server komplett wiederhergestellt und Funktionsfähigkeit geprüft. Ergebnis wird dokumentiert.
+
 ## Prüfungs-Hotspots
 
 - Unterschied inkrementell vs. differenziell
