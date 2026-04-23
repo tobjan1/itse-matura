@@ -39,14 +39,23 @@ Beide Werte sind Teil des Business Continuity Plans.
 - Zugang zu Backup-Systemen einschränken (Ransomware verschlüsselt auch erreichbare Backups)
 - Backup-Logs überwachen
 
-
 ## Datensicherungskonzept
 
-Eine Datensicherung ist weit mehr als das Kaufen eines Laufwerks und das Wechseln eines Bandes. Vorab müssen wichtige konzeptionelle Fragen geklärt werden — das Ergebnis ist das **Datensicherungskonzept**. Diese Fragen müssen individuell für den Anwendungszweck der jeweiligen Organisation (Firma, Behörde, etc.) definiert werden.
+Eine Datensicherung ist weit mehr als das Kaufen eines Laufwerks und das Wechseln eines Bandes. Ohne vorab geklärte Regeln sind Backups zufällig, lückenhaft und im Ernstfall unbrauchbar. Das **Datensicherungskonzept** ist das schriftliche Dokument, in dem eine Organisation diese Regeln festlegt.
 
-Ohne Konzept sind Backups zufällig, lückenhaft und im Ernstfall unbrauchbar. Das Konzept ist Teil des Informationssicherheits-Management-Systems (ISMS).
+Es ist Teil des Informationssicherheits-Management-Systems (ISMS) und wird regelmäßig (meist jährlich) überprüft und angepasst.
+
+### Ziele eines Datensicherungskonzepts
+
+- Einheitliche, nachvollziehbare Backup-Strategie
+- Klare Verantwortlichkeiten — im Ernstfall weiß jeder, wer was macht
+- Einhaltung rechtlicher Vorgaben (DSGVO, Aufbewahrungspflichten in der Buchhaltung, etc.)
+- Grundlage für die Wiederherstellung (Disaster Recovery)
+- Regelmäßige Überprüfung der Sicherungen (sind sie wirklich wiederherstellbar?)
 
 ## Die 7 W-Fragen
+
+Die 7 W-Fragen sind das Raster, nach dem ein Datensicherungskonzept aufgebaut wird. Jede Frage muss individuell für die jeweilige Organisation beantwortet werden — ein Datensicherungskonzept einer Bank sieht anders aus als das einer Schule.
 
 | # | W-Frage | Inhalt |
 |---|---------|--------|
@@ -58,6 +67,58 @@ Ohne Konzept sind Backups zufällig, lückenhaft und im Ernstfall unbrauchbar. D
 | 6 | **WIE** | Welches Medium wird eingesetzt, welche Software? |
 | 7 | **WO** | Wie ist die Aufbewahrung geregelt? |
 
+### 1. WAS — welche Daten?
+
+Nicht alle Daten sind gleich wichtig. Vorab wird klassifiziert:
+
+- **Kritisch**: Datenbanken (CRM, ERP), Finanzbuchhaltung, Kundendaten, Verträge
+- **Wichtig**: E-Mails, Fileserver-Dokumente, Konfigurationen von Servern
+- **Nice-to-have**: Temporäre Arbeitsdateien, Caches, Logs
+- **Nicht sichern**: Betriebssystem-Dateien, die man neu installieren kann; personenbezogene Daten nach Ablauf der Aufbewahrungsfrist (DSGVO)
+
+### 2. WANN — Zeitpunkt und Zustand
+
+- **Tagsüber**: Betrieb läuft, Backups können Performance beeinflussen; sinnvoll für inkrementelle Sicherungen kleiner Datenmengen
+- **Nachts/am Wochenende**: Kein Benutzerbetrieb, Voll-Backups möglich, keine Konflikte mit aktiven Datenbank-Transaktionen
+- **Online (hot backup)**: System läuft während der Sicherung weiter. Möglich z. B. mit Datenbank-Snapshots
+- **Offline (cold backup)**: System/Datenbank wird gestoppt. Konsistent, aber verursacht Ausfallzeit
+
+### 3. WIE OFT — Häufigkeit
+
+Hängt direkt am **Recovery Point Objective (RPO)** — wie viel Datenverlust ist akzeptabel?
+
+- Finanzsystem einer Bank: RPO praktisch 0 → kontinuierliche Replikation
+- CRM einer Firma: RPO ca. 4 h → inkrementell alle paar Stunden
+- Fileserver: RPO 1 Tag → tägliches inkrementelles Backup + wöchentliches Full
+- Archivdaten: RPO 1 Woche oder länger
+
+### 4. WIE VIEL — Anzahl der aufbewahrten Sicherungen
+
+Es reicht nicht, nur die letzte Sicherung zu haben (Ransomware-Verschlüsselung wird sonst einfach mitgesichert). Klassische Rotationsschemata:
+
+- **Großvater-Vater-Sohn (GVS)**: täglich (Sohn), wöchentlich (Vater), monatlich (Großvater). Z. B. 7 Tages- + 4 Wochen- + 12 Monats-Sicherungen
+- **Türme von Hanoi**: komplexer, mehr Medien, längere Rückreichweite
+
+### 5. WER — Verantwortung
+
+- **Durchführung**: meist der IT-Betrieb / Administrator
+- **Kontrolle**: **wichtig, dass Durchführung und Kontrolle getrennt sind** (Vier-Augen-Prinzip, Revisionssicherheit)
+- **Zurückspielen (Restore)**: klar definieren, wer im Ernstfall zugreifen darf
+- **Eskalation**: wer wird bei Problemen informiert?
+
+### 6. WIE — Medium und Software
+
+- **Medium**: Tape (LTO), HDD, SSD, NAS, Cloud-Storage (S3, Azure Blob)
+- **Software**: Veeam, Bacula, Veritas NetBackup, ArcServe, BorgBackup, restic
+- **Verschlüsselung**: Backups immer verschlüsselt speichern (AES-256)
+- **Backup-Typ**: Full / differenziell / inkrementell (siehe oben)
+
+### 7. WO — Aufbewahrungsort
+
+- **Lokal (onsite)**: schneller Restore, aber bei Brand/Hochwasser/Ransomware mit verloren
+- **Offsite**: zweites Rechenzentrum, Bankschließfach, Cloud — Schutz vor lokalen Katastrophen
+- **3-2-1-Regel** (siehe oben): 3 Kopien, 2 Medien, 1 offsite
+- **Aufbewahrungsdauer**: gesetzlich teils vorgegeben (z. B. Steuerunterlagen 7 Jahre in Österreich), teils aus Business-Sicht (CRM-Historie 3 Jahre)
 
 ## Beispiel: Datensicherungskonzept "HTL Muster GmbH"
 
@@ -82,3 +143,6 @@ Zusätzlich: **quartalsweiser Restore-Test** — eine zufällige Sicherung wird 
 - RPO und RTO definieren können
 - Was ist ein Datensicherungskonzept und warum ist es nötig?
 - Die 7 W-Fragen aufzählen und je kurz erklären können (WAS, WANN, WIE OFT, WIE VIEL, WER, WIE, WO)
+- Ein beispielhaftes Konzept für eine kleine Firma skizzieren können
+- Warum müssen Durchführung und Kontrolle getrennt sein?
+- Warum ist ein Restore-Test wichtig?
