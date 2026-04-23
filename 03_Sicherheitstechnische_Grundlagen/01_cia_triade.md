@@ -34,23 +34,6 @@ Systeme und Daten müssen für autorisierte Benutzer jederzeit erreichbar sein.
 | DDoS | Availability |
 | Ransomware | Availability (+ Confidentiality) |
 
-## Erweiterung: Parkerian Hexad
-
-Die CIA-Triade wurde von Donn Parker um drei weitere Schutzziele erweitert:
-
-| Ziel | Beschreibung |
-|------|-------------|
-| **Possession / Control** | Physische Kontrolle über Daten/Medien, unabhängig von Vertraulichkeit |
-| **Authenticity** | Echtheit und Herkunft von Daten ist verifizierbar |
-| **Utility** | Daten müssen in einer nutzbaren Form vorliegen (z. B. kein Verlust des Entschlüsselungsschlüssels) |
-
-## Erweiterung: AAA-Modell
-
-Ergänzend zur CIA-Triade beschreibt das AAA-Modell den Zugriffssteuerungsprozess:
-
-- **Authentication (Authentifizierung)**: Wer bist du? (Passwort, Biometrie, Token)
-- **Authorization (Autorisierung)**: Was darfst du? (Berechtigungen, Rollen)
-- **Accounting / Auditing**: Was hast du getan? (Logging, Protokollierung)
 
 ## Prüfungs-Hotspots
 
