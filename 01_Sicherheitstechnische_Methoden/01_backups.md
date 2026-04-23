@@ -39,8 +39,29 @@ Beide Werte sind Teil des Business Continuity Plans.
 - Zugang zu Backup-Systemen einschränken (Ransomware verschlüsselt auch erreichbare Backups)
 - Backup-Logs überwachen
 
+
+## Datensicherungskonzept
+
+Eine Datensicherung ist weit mehr als das Kaufen eines Laufwerks und das Wechseln eines Bandes. Vorab müssen wichtige konzeptionelle Fragen geklärt werden — das Ergebnis ist das **Datensicherungskonzept**. Diese Fragen müssen individuell für den Anwendungszweck der jeweiligen Organisation (Firma, Behörde, etc.) definiert werden.
+
+Ohne Konzept sind Backups zufällig, lückenhaft und im Ernstfall unbrauchbar. Das Konzept ist Teil des Informationssicherheits-Management-Systems (ISMS).
+
+## Die 7 W-Fragen
+
+| # | W-Frage | Inhalt |
+|---|---------|--------|
+| 1 | **WAS** | Welche Daten sollen gesichert werden? |
+| 2 | **WANN** | Tagsüber, in der Nacht, online oder offline (bei Datenbanken)? |
+| 3 | **WIE OFT** | Stündlich, täglich, wöchentlich, jährlich? |
+| 4 | **WIE VIEL** | Wie viele verschiedene Sicherungen werden aufbewahrt? |
+| 5 | **WER** | Wer trägt die Verantwortung für Sicherung und Kontrolle? |
+| 6 | **WIE** | Welches Medium wird eingesetzt, welche Software? |
+| 7 | **WO** | Wie ist die Aufbewahrung geregelt? |
+
 ## Prüfungs-Hotspots
 
 - Unterschied inkrementell vs. differenziell
 - 3-2-1-Regel erklären
 - RPO und RTO definieren können
+- Was ist ein Datensicherungskonzept und warum ist es nötig?
+- Die 7 W-Fragen aufzählen und je kurz erklären können (WAS, WANN, WIE OFT, WIE VIEL, WER, WIE, WO)
